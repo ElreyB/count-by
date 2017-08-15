@@ -29,13 +29,11 @@ $(document).ready(function(){
 
     countUpTo(countToInput, countByInput);
 
-    outPuts.forEach(function(outPut){
-      if (outPut <= countToInput){
-        $("#output").append(outPut + " , ");
-      }
-    });
+    var result = outPuts.join(", ");
 
-      $(".result, .return").show();
+    $("#output").append(result);
+
+    $(".result, .return").show();
   });
 
   $(".return").click(function(){
