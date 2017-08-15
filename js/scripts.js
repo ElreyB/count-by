@@ -14,8 +14,8 @@ $(document).ready(function(){
     var countToInput = parseInt($("#count-to").val());
     var countByInput = parseInt($("#count-by").val());
 
-    $(".error").hide();
-    
+    $(".error, #countform").hide();
+
     if (isNaN(countToInput) || isNaN(countByInput)){
       $(".error").show();
     }
@@ -27,5 +27,12 @@ $(document).ready(function(){
         $("#output").append(outPut + " , ");
       }
     });
+
+    $(".result, .return").show();
+  });
+
+  $(".return").click(function(){
+    $(".result, .return").hide();
+    $("#countform").show();
   });
 });
