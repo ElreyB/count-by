@@ -14,8 +14,13 @@ $(document).ready(function(){
     var countToInput = parseInt($("#count-to").val());
     var countByInput = parseInt($("#count-by").val());
 
+    $(".error").hide();
+    
+    if (isNaN(countToInput) || isNaN(countByInput)){
+      $(".error").show();
+    }
+
     countUpTo(countToInput, countByInput);
-    console.log(outPuts);
 
     outPuts.forEach(function(outPut){
       if (outPut <= countToInput){
