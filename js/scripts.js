@@ -14,11 +14,18 @@ $(document).ready(function(){
     var countToInput = parseInt($("#count-to").val());
     var countByInput = parseInt($("#count-by").val());
 
-    $(".error, #countform").hide();
-
     if (isNaN(countToInput) || isNaN(countByInput)){
       $(".error").show();
+      return;
+    } else if ((countToInput < 0) || (countByInput < 0)){
+      $(".negitive").show();
+      return;
+    } else if (countByInput > countToInput){
+      $(".tooBig").show();
+      return;
     }
+
+    $(".error, #countform, .negitive, .tooBig").hide();
 
     countUpTo(countToInput, countByInput);
 
@@ -28,11 +35,12 @@ $(document).ready(function(){
       }
     });
 
-    $(".result, .return").show();
+      $(".result, .return").show();
   });
 
   $(".return").click(function(){
     $(".result, .return").hide();
     $("#countform").show();
+    $("#output").empty();
   });
 });
